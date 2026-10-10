@@ -1,5 +1,9 @@
 # SSL Smart Tunnel Monitoring
 
+[![Scope: controlled synthetic benchmark](https://img.shields.io/badge/scope-controlled%20synthetic%20benchmark-1d2a20)](docs/VALIDATION.md)
+[![Runtime: Python 3.10+](https://img.shields.io/badge/runtime-Python%203.10%2B-3776ab)](examples/local_lod_demo.py)
+[![Project page](https://img.shields.io/badge/project-GitHub%20Pages-c8fa5b)](https://anhvipacekr.github.io/ssl-tunnel-monitoring/)
+
 Public project page for a Python desktop workflow that compares tunnel point
 cloud epochs (T0/Tn), localizes deformation evidence by chainage, and reports
 when evidence is too weak for a safe alert.
@@ -16,6 +20,16 @@ when evidence is too weak for a safe alert.
 - Excel/PDF/IFC reporting paths in desktop research prototype.
 - Controlled synthetic benchmark reporting false positives, recall, and
   abstentions together.
+
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| [index.html](index.html) | Project website hosted by GitHub Pages. |
+| [docs/METHOD.md](docs/METHOD.md) | Local LoD95 decision rule and support gate. |
+| [docs/VALIDATION.md](docs/VALIDATION.md) | Controlled benchmark results and claim boundary. |
+| [examples/local_lod_demo.py](examples/local_lod_demo.py) | Standard-library LoD95 decision example. |
+| [examples/test_local_lod_demo.py](examples/test_local_lod_demo.py) | Runnable verification for public example. |
 
 ## Public evidence snapshot
 
@@ -45,12 +59,22 @@ python examples/test_local_lod_demo.py
 The demo recreates a human-readable local-evidence decision: a 16.791 mm
 measurement does not confirm movement when its local LoD95 is 20.017 mm.
 
+## Outputs in full research prototype
+
+The maintained desktop prototype can export chainage-linked evidence to Excel,
+PDF, and IFC workflows. Those implementation paths and any generated point
+cloud artifacts are not bundled here because this is a small public showcase.
+
 ## Deliberate public boundary
 
 This repository excludes raw scans, large generated point clouds, internal
 archives, local paths, credentials, and unpublished research material. Full
 project code and data remain under active development. No license is granted
 for reuse of material in this repository; contact the author for permission.
+
+## Citation
+
+See [CITATION.cff](CITATION.cff) for a machine-readable project citation.
 
 ## CV wording
 
