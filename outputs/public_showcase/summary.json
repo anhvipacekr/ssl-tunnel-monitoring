@@ -1,0 +1,14 @@
+{
+  "kind": "public_synthetic_tunnel_evidence",
+  "inputs": "data/generated/T0.csv and T1.csv",
+  "parameters": {
+    "angular_bin_deg": 5,
+    "min_bin_points": 10,
+    "min_zone_coverage_ratio": 0.6
+  },
+  "decision_counts": {
+    "CONFIRMED DEFORMATION": 2,
+    "NOT CONFIRMED": 11,
+    "INSUFFICIENT DATA": 1
+  }
+}

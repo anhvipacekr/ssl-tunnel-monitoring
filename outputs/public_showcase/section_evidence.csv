@@ -1,0 +1,15 @@
+chainage_m,zone,measured_mm,lod95_mm,common_bins,expected_bins,coverage_ratio,decision,reason
+0.0,crown,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+0.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+10.0,crown,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+10.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+20.0,crown,-24.99999999999991,1.2901503603400883,13,13,1.0,CONFIRMED DEFORMATION,Measured -25.000 mm exceeds local detection limit 1.290 mm.
+20.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+30.0,crown,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+30.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+40.0,crown,,,0,13,0.0,INSUFFICIENT DATA,Only 0/13 angular bins have at least 10 points in both epochs.
+40.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+45.0,crown,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+45.0,right_sidewall,-20.000000000000018,1.2901503603400883,13,13,1.0,CONFIRMED DEFORMATION,Measured -20.000 mm exceeds local detection limit 1.290 mm.
+50.0,crown,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.
+50.0,right_sidewall,0.0,1.2901503603400883,13,13,1.0,NOT CONFIRMED,Measured +0.000 mm is within local detection limit 1.290 mm.

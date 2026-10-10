@@ -28,8 +28,10 @@ when evidence is too weak for a safe alert.
 | [index.html](index.html) | Project website hosted by GitHub Pages. |
 | [docs/METHOD.md](docs/METHOD.md) | Local LoD95 decision rule and support gate. |
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Controlled benchmark results and claim boundary. |
-| [examples/local_lod_demo.py](examples/local_lod_demo.py) | Standard-library LoD95 decision example. |
-| [examples/test_local_lod_demo.py](examples/test_local_lod_demo.py) | Runnable verification for public example. |
+| [docs/PUBLIC_DEMO.md](docs/PUBLIC_DEMO.md) | Public synthetic T0/T1 demo protocol. |
+| [examples/generate_synthetic_tunnel.py](examples/generate_synthetic_tunnel.py) | Creates non-sensitive T0/T1 point clouds. |
+| [examples/analyze_tunnel_epochs.py](examples/analyze_tunnel_epochs.py) | Computes chainage-linked local evidence. |
+| [outputs/public_showcase/](outputs/public_showcase) | Public CSV, JSON, and Excel evidence output. |
 
 ## Public evidence snapshot
 
@@ -47,9 +49,28 @@ movement, and zone. It is not field validation.
 Read methodology and limits in [docs/METHOD.md](docs/METHOD.md) and
 [docs/VALIDATION.md](docs/VALIDATION.md).
 
-## Run public demo
+## Run full public demo
 
 No package install needed. Python 3.10+:
+
+```powershell
+python examples/generate_synthetic_tunnel.py
+python examples/analyze_tunnel_epochs.py
+python examples/test_tunnel_demo.py
+```
+
+The generator creates deterministic 3D T0/T1 tunnel points. The analyzer
+confirms 25 mm crown movement at Ch. 20 m, confirms 20 mm right-sidewall
+movement at Ch. 45 m, and returns `INSUFFICIENT DATA` for a deliberately
+occluded crown at Ch. 40 m. It writes:
+
+- [section_evidence.csv](outputs/public_showcase/section_evidence.csv)
+- [summary.json](outputs/public_showcase/summary.json)
+- [synthetic_tunnel_evidence.xlsx](outputs/public_showcase/synthetic_tunnel_evidence.xlsx)
+
+Read the protocol in [docs/PUBLIC_DEMO.md](docs/PUBLIC_DEMO.md).
+
+## Small LoD95 example
 
 ```powershell
 python examples/local_lod_demo.py
@@ -64,6 +85,9 @@ measurement does not confirm movement when its local LoD95 is 20.017 mm.
 The maintained desktop prototype can export chainage-linked evidence to Excel,
 PDF, and IFC workflows. Those implementation paths and any generated point
 cloud artifacts are not bundled here because this is a small public showcase.
+
+The public Excel file contains synthetic chainage evidence only. It has a
+formula-linked decision summary and a filterable evidence table.
 
 ## Deliberate public boundary
 
