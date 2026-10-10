@@ -169,26 +169,26 @@
     <nav aria-label="Primary navigation">
       <a class="brand" href="#top">SSL / Tunnel Monitor</a>
       <div class="nav-links">
-        <a href="#workflow">Workflow</a>
-        <a href="#demo">Demo</a>
-        <a href="#evidence">Evidence</a>
+        <a href="#workflow">How it works</a>
+        <a href="#demo">Try example</a>
+        <a href="#evidence">Why safe</a>
         <a href="#limits">Limits</a>
       </div>
     </nav>
     <div class="hero" id="top">
       <div>
-        <span class="eyebrow">4D LiDAR point-cloud monitoring</span>
-        <h1>Detect change.<br>Expose doubt.</h1>
-        <p class="lede">Desktop research workflow for comparing tunnel point-cloud epochs, locating deformation by chainage, and withholding alerts when local point support is too weak.</p>
+        <span class="eyebrow">Tunnel movement checker</span>
+        <h1>Check tunnel movement<br>from two scans.</h1>
+        <p class="lede">Give this desktop tool an earlier and later 3D laser scan. It returns one clear result for each tunnel area: movement found, no movement confirmed, or rescan needed.</p>
         <div class="actions">
           <a class="button primary" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring">View GitHub repository</a>
           <a class="button" href="#demo">Run public demo</a>
         </div>
       </div>
       <aside class="signal-card" aria-label="Core design principle">
-        <p>Core decision</p>
-        <strong>3 states</strong>
-        <span>Confirmed deformation<br>Not confirmed<br>Insufficient data</span>
+        <p>What user sees</p>
+        <strong>3 clear results</strong>
+        <span>Movement found<br>No movement confirmed<br>Rescan needed</span>
       </aside>
     </div>
   </header>
@@ -196,79 +196,85 @@
   <main>
     <section id="workflow">
       <div class="shell">
-        <span class="eyebrow">Workflow</span>
-        <h2>From paired scans to location-specific evidence.</h2>
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps. One clear result for each tunnel area.</h2>
         <div class="grid-3">
-          <article class="card"><h3>1. Compare epochs</h3><p>Load T0 reference and Tn monitoring scans. Clean, downsample, and retain traceable epoch roles.</p></article>
-          <article class="card"><h3>2. Frame geometry</h3><p>Register scans, extract reference centerline, and build tunnel cross-sections with chainage coordinates.</p></article>
-          <article class="card"><h3>3. Decide locally</h3><p>Measure crown and sidewall change. Show local LoD95 and coverage before an alert can be confirmed.</p></article>
+          <article class="card"><h3>1. Load two scans</h3><p>Choose an earlier scan and a later scan of the same tunnel.</p></article>
+          <article class="card"><h3>2. Compare the tunnel shape</h3><p>The tool checks the roof and walls at measured positions along the tunnel.</p></article>
+          <article class="card"><h3>3. Read the result</h3><p>See movement found, no movement confirmed, or rescan needed.</p></article>
         </div>
         <div class="flow" aria-label="Processing flow">
-          <div>Import</div><div>Clean</div><div>Register</div><div>Section</div><div>Assess</div><div>Export</div>
+          <div>Load</div><div>Clean</div><div>Align</div><div>Compare</div><div>Check data</div><div>Report</div>
         </div>
       </div>
     </section>
 
     <section id="demo">
       <div class="shell">
-        <span class="eyebrow">Runnable public example</span>
-        <h2>Full T0/T1 data flow. Zero sensitive data.</h2>
+        <span class="eyebrow">Try public example</span>
+        <h2>See two movements and one data gap with made-up scans.</h2>
         <div class="grid-3">
-          <article class="card"><h3>Synthetic 3D epochs</h3><p>Generator creates deterministic T0 and T1 tunnel points. No field scans, client data, scanner files, or personal data.</p></article>
-          <article class="card"><h3>Local section evidence</h3><p>Analyzer measures crown and right-sidewall movement by chainage. It returns a decision, LoD95, support coverage, and plain-language reason.</p></article>
-          <article class="card"><h3>Downloadable output</h3><p>Public CSV, JSON, and Excel files show two confirmed changes, eleven non-confirmed locations, and one missing-data decision.</p></article>
+          <article class="card"><h3>Sample scans</h3><p>Code creates two small, artificial 3D tunnel scans. They contain no real field or client data.</p></article>
+          <article class="card"><h3>Known movement</h3><p>One roof section moves 25 mm. One wall section moves 20 mm. Both should be found.</p></article>
+          <article class="card"><h3>Missing points</h3><p>One roof section has no later-scan points. The result must say "rescan needed."</p></article>
         </div>
-        <div class="code" aria-label="Public demo commands">python examples/generate_synthetic_tunnel.py<br>python examples/analyze_tunnel_epochs.py<br>python examples/test_tunnel_demo.py</div>
+        <details>
+          <summary>Developer commands</summary>
+          <div class="code" aria-label="Public demo commands">python examples/generate_synthetic_tunnel.py<br>python examples/analyze_tunnel_epochs.py<br>python examples/test_tunnel_demo.py</div>
+        </details>
         <div class="actions">
-          <a class="button primary" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/PUBLIC_DEMO.md">Read demo protocol</a>
-          <a class="button" href="outputs/public_showcase/synthetic_tunnel_evidence.xlsx">Download Excel evidence</a>
-          <a class="button" href="outputs/public_showcase/section_evidence.csv">Open CSV evidence</a>
+          <a class="button primary" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/PUBLIC_DEMO.md">Read example steps</a>
+          <a class="button" href="outputs/public_showcase/synthetic_tunnel_evidence.xlsx">Download Excel result</a>
+          <a class="button" href="outputs/public_showcase/section_evidence.csv">View CSV result</a>
         </div>
         <figure>
           <img class="workbook-preview" src="assets/synthetic_tunnel_evidence_summary.png" alt="Synthetic tunnel evidence workbook summary with decision counts">
-          <figcaption>Excel summary generated from public synthetic T0/T1 point clouds.</figcaption>
+          <figcaption>Excel report from artificial tunnel scans. Green means change found. Orange means more scan data is needed.</figcaption>
         </figure>
       </div>
     </section>
 
     <section id="evidence">
       <div class="shell">
-        <span class="eyebrow">Step 6 local evidence</span>
-        <h2>Missing points must not become deformation.</h2>
+        <span class="eyebrow">Why this is safer</span>
+        <h2>A gap in scan data is not automatically a tunnel movement.</h2>
         <div class="result-grid">
           <div class="metric">
-            <p>Quality-gated local LoD95 in controlled benchmark</p>
+            <p>False alerts in controlled no-movement test</p>
             <strong>0 / 32</strong>
-            <span>false positives on negative synthetic cases</span>
+            <span>test cases were incorrectly called a change</span>
           </div>
           <div class="warning">
-            <h3>Safety tradeoff</h3>
-            <p>The same method abstained on 135 / 160 cases when angular coverage or point support failed. This is intentional: request better data instead of issuing a confident false alert.</p>
+            <h3>What happens with a weak scan?</h3>
+            <p>The tool can say "rescan needed." This avoids a confident alert when too many points are missing.</p>
           </div>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Method</th><th>False positives / 32 negatives</th><th>Abstention</th><th>Meaning</th></tr></thead>
-            <tbody>
-              <tr><td>Fixed 10 mm</td><td>4</td><td>43.8%</td><td>Baseline rule can alert on sparse observations.</td></tr>
-              <tr><td>Point-only local LoD95</td><td>0</td><td>43.8%</td><td>Uses local scatter and shared angular bins.</td></tr>
-              <tr><td>Coverage-gated LoD95</td><td>0</td><td>84.4%</td><td>Withholds results when support is inadequate.</td></tr>
-              <tr><td>M3C2 comparator</td><td>0</td><td>37.5%</td><td>Supplementary normal-distance result.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><a href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/VALIDATION.md">Read validation boundary and full public snapshot.</a></p>
+        <details>
+          <summary>Technical benchmark details</summary>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Method</th><th>False alerts / 32 no-movement cases</th><th>How often it asked for more data</th></tr></thead>
+              <tbody>
+                <tr><td>Fixed 10 mm rule</td><td>4</td><td>43.8%</td></tr>
+                <tr><td>Local LoD95 rule</td><td>0</td><td>43.8%</td></tr>
+                <tr><td>Local LoD95 plus coverage check</td><td>0</td><td>84.4%</td></tr>
+                <tr><td>M3C2 comparison</td><td>0</td><td>37.5%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <p><a href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/VALIDATION.md">Read technical test limits.</a></p>
       </div>
     </section>
 
     <section id="limits">
       <div class="shell">
-        <span class="eyebrow">Evidence boundary</span>
-        <h2>Controlled synthetic result. Field validation pending.</h2>
-        <p class="limits">Public benchmark has 160 pre-aligned synthetic cases on OS6-derived geometry. It varies density, angular occlusion, movement, and zone. It does not establish field accuracy, registration uncertainty, or universal scanner thresholds. Raw scans, archives, credentials, and unpublished material stay out of this repository.</p>
+        <span class="eyebrow">What this does not claim</span>
+        <h2>Controlled example. Not yet proof for every real tunnel.</h2>
+        <p class="limits">The public test uses 160 artificial cases. It shows how the decision rule handles movement and missing points. It does not prove accuracy on all real tunnels or all scanners. Raw scans, archives, credentials, and unpublished material stay out of this repository.</p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/METHOD.md">Method and decision rule</a>
-          <a class="button" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/tree/main/examples">Run standard-library demo</a>
+          <a class="button primary" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/blob/main/docs/METHOD.md">Read technical method</a>
+          <a class="button" href="https://github.com/anhvipacekr/ssl-tunnel-monitoring/tree/main/examples">View example code</a>
         </div>
       </div>
     </section>
